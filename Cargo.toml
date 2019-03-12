@@ -1,0 +1,22 @@
+[package]
+name = "stm32_apa102"
+version = "0.1.0"
+edition = "2018"
+
+[profile.release]
+# optimize for size ('z' would optimize even more)
+opt-level = 's'
+lto = true
+debug = true
+
+[dependencies]
+stm32f1 = {version = "0.6.0", features = ["stm32f103", "rt"]}
+cortex-m-rt = "0.6.7"
+cortex-m = "0.5.8"
+panic-halt = "0.2.0"
+bare-metal = "0.2.4"
+stm32f1xx-hal = {version = "0.2.1", features = ["stm32f103"]}
+smart-leds = {git = "https://github.com/smart-leds-rs/smart-leds"}
+ws2812-spi = {git = "https://github.com/smart-leds-rs/ws2812-spi-rs"}
+ws2812-timer-delay = {git = "https://github.com/smart-leds-rs/ws2812-timer-delay-rs", features = ["slow"]}
+apa102-spi = {git = "https://github.com/smart-leds-rs/apa102-spi-rs"}
