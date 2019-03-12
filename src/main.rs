@@ -21,10 +21,6 @@ use cortex_m_rt::entry;
 #[entry]
 fn main() -> ! {
     if let (Some(p), Some(cp)) = (stm32::Peripherals::take(), Peripherals::take()) {
-        // Constrain clocking registers
-        //let mut flash = p.FLASH;
-        //let mut flash2 = p.FLASH.constrain();
-        //let mut rcc = p.RCC.constrain().sysclk(48.mhz()).freeze(&mut flash);
         let mut flash = p.FLASH.constrain();
         let mut rcc = p.RCC.constrain();
         let clocks = rcc.cfgr.freeze(&mut flash.acr);
@@ -32,23 +28,12 @@ fn main() -> ! {
 
         let mut gpioa = p.GPIOA.split(&mut rcc.apb2);
 
-        // Get delay provider
         let mut delay = Delay::new(cp.SYST, clocks);
-
-        // Configure pins for SPI
-        //let (sck, miso, mosi) = cortex_m::interrupt::free(move |cs| {
-        //     (
-        //         gpioa.pb3.into_alternate_push_pull(cs),
-        //         gpioa.pb4.into_floating_input(cs),
-        //         gpioa.pb5.into_alternate_push_pull(cs),
-        //     )
-        // });
 
         let sck = gpioa.pa5.into_alternate_push_pull(&mut gpioa.crl);
         let miso = gpioa.pa6;
         let mosi = gpioa.pa7.into_alternate_push_pull(&mut gpioa.crl);
 
-        // Configure SPI with 3Mhz rate
         let spi = Spi::spi1(
             p.SPI1,
             (sck, miso, mosi),
