@@ -153,17 +153,18 @@ version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
-name = "stm32_apa102"
+name = "stm32_esp"
 version = "0.1.0"
 dependencies = [
  "apa102-spi 0.1.0 (git+https://github.com/smart-leds-rs/apa102-spi-rs)",
  "bare-metal 0.2.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "cortex-m 0.5.8 (registry+https://github.com/rust-lang/crates.io-index)",
  "cortex-m-rt 0.6.7 (registry+https://github.com/rust-lang/crates.io-index)",
+ "nb 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "panic-halt 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "smart-leds 0.1.0 (git+https://github.com/smart-leds-rs/smart-leds)",
  "stm32f1 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "stm32f1xx-hal 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "stm32f1xx-hal 0.2.1",
  "ws2812-spi 0.1.0 (git+https://github.com/smart-leds-rs/ws2812-spi-rs)",
  "ws2812-timer-delay 0.1.0 (git+https://github.com/smart-leds-rs/ws2812-timer-delay-rs)",
 ]
@@ -182,7 +183,6 @@ dependencies = [
 [[package]]
 name = "stm32f1xx-hal"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "cast 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "cortex-m 0.5.8 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -269,7 +269,6 @@ dependencies = [
 "checksum smart-leds 0.1.0 (git+https://github.com/smart-leds-rs/smart-leds)" = "<none>"
 "checksum smart-leds-trait 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)" = "454794882de9e53f54ba5981e158f242a0359b13801a4a24b5a927c83c31a427"
 "checksum stm32f1 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)" = "5c9a197094ef680c79c5018701f0c03f0dc673cbf4a0df944371d3f83c71161d"
-"checksum stm32f1xx-hal 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "c69099c8ceba8a0279cb8c028c5a2dd1effc7bf5031e511335ba06d3660ff82f"
 "checksum syn 0.15.29 (registry+https://github.com/rust-lang/crates.io-index)" = "1825685f977249735d510a242a6727b46efe914bb67e38d30c071b1b72b1d5c2"
 "checksum unicode-xid 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)" = "fc72304796d0818e357ead4e000d19c9c174ab23dc11093ac919054d20a6a7fc"
 "checksum vcell 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)" = "45c297f0afb6928cd08ab1ff9d95e99392595ea25ae1b5ecf822ff8764e57a0d"
